@@ -11,9 +11,13 @@ const MovieCard = ({ movie }) => {
           src={
             movie.Poster !== 'N/A'
               ? movie.Poster
-              : 'https://via.placeholder.com/400'
+              : 'https://placehold.co/400x600?text=No+Poster'
           }
           alt={movie.Title}
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = 'https://placehold.co/400x600?text=No+Poster';
+          }}
         />
       </div>
       <div>
