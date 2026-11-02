@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SearchIcon from './search.svg';
 import MovieCard from './MovieCard';
 import './App.css';
-
-
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -23,21 +20,26 @@ const App = () => {
   return (
     <div className='app'>
       <h1>MovieLand</h1>
-      <div className='search'>
+      <form
+        className='search'
+        role='search'
+        onSubmit={(e) => {
+          e.preventDefault();
+          searchMovies(searchTerm);
+        }}>
         <input
           type='text'
           placeholder='Search movie title'
+          aria-label='Search movie title'
           value={searchTerm}
           required
           autoFocus
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <img
-          src={SearchIcon}
-          alt='search'
-          onClick={() => searchMovies(searchTerm)}
-        />
-      </div>
+        <button type='submit' aria-label='Search'>
+          Search
+        </button>
+      </form>
 
       {movies?.length > 0 ? (
         <div className='container'>

@@ -73,6 +73,16 @@ h1 {
   width: 35px;
   height: 35px;
   cursor: pointer;
+ color: #212426;
+}
+.search button {
+  background: none;
+  border: 4px;
+  padding: 0;
+  cursor: pointer;
+  border-radius:3px;
+  color: #f0f0f0;
+  
 }
 
 /* .search button {
